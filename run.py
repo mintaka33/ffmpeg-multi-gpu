@@ -75,6 +75,8 @@ def run_ffmpeg(trans_cmd):
         print('total_fps = %d'%total_fps, lineout)
 
 def run_concat(args):
+    if args.segment <= 1:
+        return
     lines = []
     for i in range(args.segment):
         lines.append('file out_enc.%03d.mp4\n' % i)
